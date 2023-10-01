@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
         instance = this;
     }
 
-    void FixedUpdate() {
+    void Update() {
         if (Input.GetMouseButton(0)) {
             Vector3 mousePosition = GetMousePosition();
 
