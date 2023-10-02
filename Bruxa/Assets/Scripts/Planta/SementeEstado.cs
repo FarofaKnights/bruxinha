@@ -10,11 +10,12 @@ public class SementeEstado : MonoBehaviour, IState {
 
     public void Enter() {
         currentTime = 0;
+        timeToGrow = plantaMachine.tempoEntreFases;
         gameObject.SetActive(true);
     }
 
-    public void Update() {
-        currentTime += Time.deltaTime * plantaMachine.GetModificador();
+    public void Execute(float deltaTime) {
+        currentTime += deltaTime * plantaMachine.GetModificador();
 
         if (currentTime >= timeToGrow) {
             plantaMachine.ChangeState(plantaMachine.brotoState);

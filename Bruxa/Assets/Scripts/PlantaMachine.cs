@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CresceCom { Sol, Lua, Mudanca }
+
 public class PlantaMachine : MonoBehaviour {
     public GameObject[] estados;
 
@@ -9,8 +11,14 @@ public class PlantaMachine : MonoBehaviour {
 
     public IState state;
 
+    public CresceCom cresceCom;
+
     public IState lastState;
     public bool inHand = true;
+    public float modificador = 1;
+
+    public float tempoEntreFases = 6f;
+    public float tempoMorte = 12f;
 
     void Awake() {
         sementeState = estados[0].GetComponent<IState>();
@@ -48,7 +56,7 @@ public class PlantaMachine : MonoBehaviour {
     }
 
     public float GetModificador() {
-        return inHand? 0 : 1;
+        return inHand? 0 : modificador;
     }
     
     public void ChangeState(IState state){
@@ -61,11 +69,43 @@ public class PlantaMachine : MonoBehaviour {
 
     public virtual void HasTimeChangedState(IState stateChanged) {
         if (stateChanged == lastState) return;
+        bool sol = false, lua = false, mudanca = false;
+
+        switch (stateChanged) {
+            case MadrugadaState:
+                lua = true;
+                break;
+            case DiaState:
+                sol = true;
+                break;
+            case TardeState:
+                sol = true;
+                break;
+            case NoiteState:
+                lua = true;
+                break;
+        }
+
+        if (cresceCom == CresceCom.Sol) {
+            modificador = sol ? 1 : 0;
+        }
+
+        if (cresceCom == CresceCom.Lua) {
+            modificador = lua ? 1 : 0;
+        }
+
+        if (cresceCom == CresceCom.Mudanca) {
+            if (lastState is MadrugadaState && stateChanged is DiaState) {
+                modificador = 1;
+                state?.Execute(999);
+                modificador = 0;
+            }
+        }
 
         lastState = stateChanged;
     }
 
     void FixedUpdate() {
-        state?.Update();
+        state?.Execute(Time.deltaTime);
     }
 }

@@ -56,7 +56,9 @@ MonoBehaviour:
   - {fileID: 5322783260693893081}
   - {fileID: 1239701425957976395}
   - {fileID: 923691401857215254}
+  cresceCom: 1
   inHand: 1
+  modificador: 1
 --- !u!114 &-5358241975144398512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,7 +281,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2158671389631448090}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8389676774196062588
+--- !u!114 &8704679408578629161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -288,7 +290,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1239701425957976395}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5be7b0d1a7d224494261a2ed74d455, type: 3}
+  m_Script: {fileID: 11500000, guid: dac65b7116c88ff44a5297d702b7b30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plantaMachine: {fileID: 8470370493348909838}
@@ -386,7 +388,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4980764573243224712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8571910574799027817
+--- !u!114 &7571109926340006618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -395,7 +397,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5322783260693893081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac65b7116c88ff44a5297d702b7b30f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c5be7b0d1a7d224494261a2ed74d455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   plantaMachine: {fileID: 8470370493348909838}

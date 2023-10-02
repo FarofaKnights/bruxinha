@@ -56,7 +56,9 @@ MonoBehaviour:
   - {fileID: 8208075855124371881}
   - {fileID: 4490433187420446147}
   - {fileID: 5042935382024805487}
+  cresceCom: 1
   inHand: 1
+  modificador: 1
 --- !u!114 &-1899855501952298246
 MonoBehaviour:
   m_ObjectHideFlags: 0

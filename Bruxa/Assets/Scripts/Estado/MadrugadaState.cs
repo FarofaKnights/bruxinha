@@ -13,10 +13,11 @@ public class MadrugadaState : IState {
     public void Enter() {
         time = 0;
         changeTime = 5;
+        tempoMachine.luz.color = Color.black;
     }
 
-    public void Update() {
-        time += Time.deltaTime;
+    public void Execute(float deltaTime) {
+        time += deltaTime;
         if (time >= changeTime) {
             tempoMachine.ChangeState(new DiaState(tempoMachine));
         }

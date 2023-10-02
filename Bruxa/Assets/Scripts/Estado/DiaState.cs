@@ -13,10 +13,11 @@ public class DiaState : IState {
     public void Enter() {
         time = 0;
         changeTime = 5;
+        tempoMachine.luz.color = Color.white;
     }
 
-    public void Update() {
-        time += Time.deltaTime;
+    public void Execute(float deltaTime) {
+        time += deltaTime;
         if (time >= changeTime) {
             tempoMachine.ChangeState(new TardeState(tempoMachine));
         }

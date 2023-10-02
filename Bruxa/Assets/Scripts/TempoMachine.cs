@@ -8,6 +8,7 @@ public class TempoMachine : MonoBehaviour {
 
     IState state;
     public string debugState;
+    public Light luz;
 
     Action<IState> OnChanceState;
 
@@ -20,7 +21,7 @@ public class TempoMachine : MonoBehaviour {
     }
 
     void FixedUpdate(){
-        state?.Update();
+        state?.Execute(Time.deltaTime);
     }
 
     public void ChangeState(IState state){
@@ -29,6 +30,7 @@ public class TempoMachine : MonoBehaviour {
         this.state?.Enter();
 
         debugState = state.GetType().Name;
+        Debug.Log(debugState);
 
         OnChanceState?.Invoke(state);
     }
