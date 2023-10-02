@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SlotUI : MonoBehaviour {
+    [SerializeField]
     Slot slot;
 
     public Image image, fundo;

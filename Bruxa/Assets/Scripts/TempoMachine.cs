@@ -4,10 +4,16 @@ using UnityEngine;
 using System;
 
 public class TempoMachine : MonoBehaviour {
+    public static TempoMachine instance;
+
     IState state;
     public string debugState;
 
-    Action OnChanceState;
+    Action<IState> OnChanceState;
+
+    void Awake(){
+        instance = this;
+    }
 
     void Start(){
         ChangeState(new DiaState(this));
@@ -24,14 +30,14 @@ public class TempoMachine : MonoBehaviour {
 
         debugState = state.GetType().Name;
 
-        OnChanceState?.Invoke();
+        OnChanceState?.Invoke(state);
     }
 
-    public void AddListener(Action action){
+    public void AddListener(Action<IState> action){
         OnChanceState += action;
     }
 
-    public void RemoveListener(Action action){
+    public void RemoveListener(Action<IState> action){
         OnChanceState -= action;
     }
 }
