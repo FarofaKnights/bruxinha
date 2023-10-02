@@ -14,12 +14,12 @@ public class Vaso : MonoBehaviour, IAcao {
             }
         } else if (planta != null) {
             if (planta.state == planta.crescidoState) {
+                planta.Pegar();
                 Item item = planta.GetComponent<Item>();
                 Signo signo = item.signo;
-
-
-                planta.Pegar();
                 planta = null;
+                Debug.Log("" + signo);
+                GameManager.instance.AddToInventario(signo, 1);
             }
         }
     }

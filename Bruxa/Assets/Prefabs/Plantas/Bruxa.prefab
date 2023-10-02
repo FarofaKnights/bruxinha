@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1419925480362488007}
   - component: {fileID: 9010718029089352387}
   - component: {fileID: 3870178746560019090}
+  - component: {fileID: 4390932649215429520}
   m_Layer: 0
   m_Name: Bruxa
   m_TagString: Untagged
@@ -55,10 +56,7 @@ MonoBehaviour:
   - {fileID: 7051506429610773995}
   - {fileID: 1966036430237758250}
   - {fileID: 5319436575135745882}
-  estadoAtual: {fileID: 0}
-  time: 0
-  readyTime: 0
-  pastTime: 0
+  inHand: 1
 --- !u!114 &9010718029089352387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +84,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4390932649215429520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8200881925849288044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ede2fd32553caf459b5e7a9de887ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signo: {fileID: 11400000, guid: fd16d28fc8f3f914ba8fcfa2e31d684b, type: 2}
 --- !u!1001 &1696074092358225531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,6 +183,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1696074092358225531}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7835049885298032339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966036430237758250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac65b7116c88ff44a5297d702b7b30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1419925480362488007}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!1001 &4977329367469455883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,6 +284,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4977329367469455883}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4407017210992553417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5319436575135745882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b6627009be481499328d8712b9537c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1419925480362488007}
+  timeToGrow: 3
+  timeToDie: 6
+  currentTime: 0
 --- !u!1001 &5406840009704857309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343,6 +385,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5406840009704857309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &459031510188486143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5172838847806890892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17be114270f63b547a59f20bdc502d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1419925480362488007}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!4 &5513053740555221302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d7b200cfbc640a49b68a95abcc9ddb3,
@@ -429,6 +486,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7861757097859903674}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2777805205435575911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051506429610773995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5be7b0d1a7d224494261a2ed74d455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1419925480362488007}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!4 &7678684713038714705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e18d5013d34c93e44bbd0c24ac69b75d,

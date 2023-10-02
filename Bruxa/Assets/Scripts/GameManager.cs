@@ -49,6 +49,14 @@ public class GameManager : MonoBehaviour {
         }
         return Vector3.zero;
     }
+
+    public void AddToInventario(Signo signo, int qtd) { 
+        foreach (Slot s in inventario) { 
+            if (s.item == signo) {
+                s.AddQtd(qtd);
+            }
+        }
+    }
     
 
 }

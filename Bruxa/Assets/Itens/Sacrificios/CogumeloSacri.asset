@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CogumeloSacri
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 85bfdc9d297b61047adaa8d34abe3ad2, type: 3}

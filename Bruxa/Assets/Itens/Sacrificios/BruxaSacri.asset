@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: BruxaSacri
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6835d6f275729c14ead8f1e0d0e3ee4b, type: 3}

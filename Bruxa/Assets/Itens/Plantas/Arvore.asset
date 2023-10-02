@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Arvore
   m_EditorClassIdentifier: 
   prefab: {fileID: 3328876129299388155, guid: 4d73395010731c04b902294a9aadd0da, type: 3}
+  sprite: {fileID: 21300000, guid: 1835fe6972e35fc4993371ad254fa01c, type: 3}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SamambaiaSacri
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 98bc4bde7d3d6a543860936df04e4f9c, type: 3}

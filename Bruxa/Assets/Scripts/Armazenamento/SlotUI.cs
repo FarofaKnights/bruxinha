@@ -89,6 +89,6 @@ public class SlotUI : MonoBehaviour {
             }
         }
 
-        image.sprite = null;
+        image.sprite = slot.item.sprite;
     }
 }
