@@ -7,6 +7,8 @@ using System;
 public class Player : MonoBehaviour {
     public static Player instance;
 
+    public float arriveDistance = 0.25f;
+
     [SerializeField] NavMeshAgent agent;
     [SerializeField] GameObject maoPlayer;
 
@@ -39,11 +41,9 @@ public class Player : MonoBehaviour {
         if (!walking) return false;
 
         if (!agent.pathPending) {
-            if (agent.remainingDistance <= agent.stoppingDistance) {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f) {
-                    walking = false;
-                    return true;
-                }
+            if (agent.remainingDistance <= arriveDistance) {
+                walking = false;
+                return true;
             }
         }
 

@@ -5,12 +5,9 @@ using UnityEngine;
 public class Vaso : MonoBehaviour, IAcao {
     public GameObject plantaHolder;
     public void FazerAcao() {
-        Debug.Log("Vaso");
         if (!Player.instance.IsHandEmpty()) {
-            Debug.Log("Não vazio");
             GameObject maoPlayer = Player.instance.GetInHand();
             if (maoPlayer.GetComponent<PlantaMachine>() != null) {
-                Debug.Log("Planta");
                 Plantar(maoPlayer.GetComponent<PlantaMachine>());
             }
         }
