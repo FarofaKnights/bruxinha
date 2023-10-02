@@ -9,13 +9,17 @@ public class GameManager : MonoBehaviour {
     public Player player;
     public float clickRange = 0.25f;
 
-    
+    public List<Slot> inventario = new List<Slot>();
+
+    public bool listenInput = true;
 
     void Awake() {
         instance = this;
     }
 
     void Update() {
+        if (!listenInput) return;
+
         if (Input.GetMouseButton(0)) {
             Vector3 mousePosition = GetMousePosition();
 

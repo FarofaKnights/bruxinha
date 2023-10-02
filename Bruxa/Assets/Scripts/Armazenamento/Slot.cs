@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Slot {
     public Signo item;
     public int qtd;
@@ -24,6 +25,10 @@ public class Slot {
         this.qtd -= qtd;
 
         if (this.qtd < 0) this.qtd = 0;
+    }
+
+    public void SetQtd(int qtd) {
+        this.qtd = qtd;
     }
 
     public GameObject GetObj() {

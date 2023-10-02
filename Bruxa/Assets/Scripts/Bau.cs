@@ -8,7 +8,6 @@ public class Bau : MonoBehaviour, IAcao {
     public GameObject ui;
     public Inventario inventario;
 
-    bool showUI = false;
 
     void Awake() {
         instance = this;
