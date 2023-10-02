@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1366162006634179893}
   - component: {fileID: 270358447364489167}
   - component: {fileID: -6595490578427139526}
+  - component: {fileID: -7051309267731075364}
   m_Layer: 0
   m_Name: Girassol
   m_TagString: Untagged
@@ -55,10 +56,7 @@ MonoBehaviour:
   - {fileID: 142864476362839149}
   - {fileID: 5748451808115372246}
   - {fileID: 6516241817188695791}
-  estadoAtual: {fileID: 0}
-  time: 0
-  readyTime: 0
-  pastTime: 0
+  inHand: 1
 --- !u!114 &270358447364489167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +84,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7051309267731075364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617078104232384440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ede2fd32553caf459b5e7a9de887ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signo: {fileID: 11400000, guid: 3d1ada1c679d7e94d83eb71c278f0c30, type: 2}
 --- !u!1001 &953328988886673724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,6 +177,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 953328988886673724}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2968496387289606541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142864476362839149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5be7b0d1a7d224494261a2ed74d455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1366162006634179893}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!4 &770219815503744727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4dcf97d549301654a85fd19d6a42c79b,
@@ -258,6 +284,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4830097026566196615}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7235548451424710695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5748451808115372246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac65b7116c88ff44a5297d702b7b30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1366162006634179893}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!1001 &6246280174155776958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,6 +385,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6246280174155776958}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4905683629518749222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516241817188695791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b6627009be481499328d8712b9537c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1366162006634179893}
+  timeToGrow: 3
+  timeToDie: 6
+  currentTime: 0
 --- !u!1001 &7258793953679678669
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,3 +492,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7258793953679678669}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8050158369457410063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529177955341803932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17be114270f63b547a59f20bdc502d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 1366162006634179893}
+  timeToGrow: 3
+  currentTime: 0

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AloeSacri
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 69b5c103b311f0a4a934f5691403bce2, type: 3}

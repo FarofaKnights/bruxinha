@@ -12,10 +12,12 @@ public class VersaoController : MonoBehaviour {
         instance = this;
     }
 
-    void FixedUpdate() {
-        if (versao != oldVersao) {
-            oldVersao = versao;
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.K)) {
+            versao++;
+            versao = versao % 7;
             TrocaVersao?.Invoke(versao);
+            Debug.Log("apertei");
         }
     }
 }

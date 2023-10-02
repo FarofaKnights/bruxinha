@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6375152722588887313}
   - component: {fileID: -1899855501952298246}
   - component: {fileID: 6650872194316979013}
+  - component: {fileID: 1273305377004302081}
   m_Layer: 0
   m_Name: Carnivora
   m_TagString: Untagged
@@ -55,10 +56,7 @@ MonoBehaviour:
   - {fileID: 8208075855124371881}
   - {fileID: 4490433187420446147}
   - {fileID: 5042935382024805487}
-  estadoAtual: {fileID: 0}
-  time: 0
-  readyTime: 0
-  pastTime: 0
+  inHand: 1
 --- !u!114 &-1899855501952298246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +84,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1273305377004302081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523668370115984332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ede2fd32553caf459b5e7a9de887ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signo: {fileID: 11400000, guid: 2db0608e3be7bf34785adb230993a6fa, type: 2}
 --- !u!1001 &3643501024429154450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,6 +183,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3643501024429154450}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2048345909300461487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4490433187420446147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac65b7116c88ff44a5297d702b7b30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 6375152722588887313}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!1001 &5277500588959686974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -252,6 +278,22 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5277500588959686974}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7940796505037369855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042935382024805487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b6627009be481499328d8712b9537c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 6375152722588887313}
+  timeToGrow: 3
+  timeToDie: 6
+  currentTime: 0
 --- !u!4 &5672226205968238293 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 25920bd7b633a4d4fbd5546141c250eb,
@@ -343,6 +385,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7562160722727846662}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2435210887275038068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220212267656674903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17be114270f63b547a59f20bdc502d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 6375152722588887313}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!4 &8032319885644637421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7d7b200cfbc640a49b68a95abcc9ddb3,
@@ -429,6 +486,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9018907204160005368}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8184881382552999785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8208075855124371881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5be7b0d1a7d224494261a2ed74d455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantaMachine: {fileID: 6375152722588887313}
+  timeToGrow: 3
+  currentTime: 0
 --- !u!4 &8836943367105823507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e45595269b0a66f458bbffd78b44fff4,
