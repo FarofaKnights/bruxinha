@@ -19,11 +19,6 @@ public class Ritual : AcaoBehaviour {
         GameManager.instance.listenInput = false;
 
         GameObject player = Player.instance.gameObject;
-
-        Vector3 centerPos = center.transform.position;
-        centerPos.y = player.transform.position.y;
-        player.transform.position = centerPos;
-
         player.GetComponent<NavMeshAgent>().enabled = false;
         beingLifted = true;
         startPos = player.transform.position;
