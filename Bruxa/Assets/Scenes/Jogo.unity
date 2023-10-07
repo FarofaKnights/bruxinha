@@ -106849,6 +106849,7 @@ Transform:
   m_Children:
   - {fileID: 543450653620884932}
   - {fileID: 1466745679}
+  - {fileID: 300448192}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106864,6 +106865,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b6f4a8e9e34e14683f7a8ad51ccebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 300448192}
   ui: {fileID: 1466745678}
   inventario: {fileID: 1184828002}
 --- !u!65 &2100029794

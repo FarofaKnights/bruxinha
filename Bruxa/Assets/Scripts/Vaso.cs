@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vaso : MonoBehaviour, IAcao {
+public class Vaso : AcaoBehaviour {
     public GameObject plantaHolder;
-    PlantaMachine planta;
+    PlantaMachine planta = null;
 
-    public void FazerAcao() {
+    public override void FazerAcao() {
         if (!Player.instance.IsHandEmpty()) {
             GameObject maoPlayer = Player.instance.GetInHand();
             if (maoPlayer.GetComponent<PlantaMachine>() != null) {

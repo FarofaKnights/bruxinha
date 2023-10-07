@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bau : MonoBehaviour, IAcao {
+public class Bau : AcaoBehaviour {
     public static Bau instance;
 
     public GameObject ui;
@@ -20,7 +20,7 @@ public class Bau : MonoBehaviour, IAcao {
         }
     }
     
-    public void FazerAcao() {
+    public override void FazerAcao() {
         AbrirBau();
         
         if (!Player.instance.IsHandEmpty()) {

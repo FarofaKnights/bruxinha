@@ -28,12 +28,17 @@ public class Player : MonoBehaviour {
         }
     }
 
-    public void SetTarget(Vector3 target, Action callback) {
+    public void SetTarget(Vector3 target, AcaoBehaviour acao = null) {
+        if (acao != null) {
+            Transform novoTarget = acao.GetTarget(transform);
+            target = novoTarget!=null? novoTarget.position : target;
+        }
+
         agent.SetDestination(target);
         walking = true;
 
-        if (callback != null) {
-            AfterArrive = callback;
+        if (acao != null) {
+            AfterArrive = acao.FazerAcao;
         }
     }
 

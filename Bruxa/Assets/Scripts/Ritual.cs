@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Ritual : MonoBehaviour, IAcao {
+public class Ritual : AcaoBehaviour {
     public static Ritual instance;
     public GameObject center;
 
@@ -15,7 +15,7 @@ public class Ritual : MonoBehaviour, IAcao {
         instance = this;
     }
     
-    public void FazerAcao() {
+    public override void FazerAcao() {
         GameManager.instance.listenInput = false;
 
         GameObject player = Player.instance.gameObject;

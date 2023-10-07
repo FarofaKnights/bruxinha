@@ -24,17 +24,17 @@ public class GameManager : MonoBehaviour {
             Vector3 mousePosition = GetMousePosition();
 
             if (mousePosition != Vector3.zero) {
-                Action action = CheckForClickables(mousePosition);
-                player.SetTarget(mousePosition, action);
+                AcaoBehaviour acao = CheckForClickables(mousePosition);
+                player.SetTarget(mousePosition, acao);
             }
         }
     }
 
-    Action CheckForClickables(Vector3 clickPos) {
+    AcaoBehaviour CheckForClickables(Vector3 clickPos) {
         Collider[] colliders = Physics.OverlapSphere(clickPos, clickRange);
         foreach (Collider collider in colliders) {
-            if (collider.GetComponent<IAcao>() != null) {
-                return collider.GetComponent<IAcao>().FazerAcao;
+            if (collider.GetComponent<AcaoBehaviour>() != null) {
+                return collider.GetComponent<AcaoBehaviour>();
             }
         }
 
