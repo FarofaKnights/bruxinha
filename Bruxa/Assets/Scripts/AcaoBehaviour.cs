@@ -6,12 +6,12 @@ public abstract class AcaoBehaviour : MonoBehaviour {
     public Transform[] targets;
     public abstract void FazerAcao();
 
-    public Transform GetTarget() {
+    public virtual Transform GetTarget() {
         if (targets == null || targets.Length == 0) return null;
         return targets[0];
     }
 
-    public Transform GetTarget(Transform closestTo) {
+    public virtual Transform GetTarget(Transform closestTo) {
         if (targets == null || targets.Length == 0) return null;
 
         float menorDistancia = 999;

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4654f49cf1eae40b79935b3531a6bc, type: 3}
   m_Name: Carnivora
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5523668370115984332, guid: 08ea0792a91e7e047a0236b9f5281646, type: 3}
-  sprite: {fileID: 21300000, guid: 8730f466968e44548b6fb35b6fa39abb, type: 3}
+  prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: a05759b88db18b64aaddd5bcfbfa93c1, type: 3}

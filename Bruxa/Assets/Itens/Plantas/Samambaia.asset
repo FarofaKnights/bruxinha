@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4654f49cf1eae40b79935b3531a6bc, type: 3}
   m_Name: Samambaia
   m_EditorClassIdentifier: 
-  prefab: {fileID: 9003935755826212942, guid: 074f6ceca3c5fbc4295dce1ef8b6e434, type: 3}
-  sprite: {fileID: 21300000, guid: 1a55e4c15e33b12499c235f3b44d5cdb, type: 3}
+  prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 50c919a48842e96449ca5245f0b2bf37, type: 3}

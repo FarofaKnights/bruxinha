@@ -7,10 +7,16 @@ public class Vaso : AcaoBehaviour {
     PlantaMachine planta = null;
 
     public override void FazerAcao() {
-        if (!Player.instance.IsHandEmpty()) {
-            GameObject maoPlayer = Player.instance.GetInHand();
-            if (maoPlayer.GetComponent<PlantaMachine>() != null) {
-                Plantar(maoPlayer.GetComponent<PlantaMachine>());
+        if (Player.instance.mao.GetAtual() != null) {
+            Slot slot = Player.instance.mao.GetAtual();
+
+            if (slot == null || !slot.IsInstantiable()) return;
+
+            GameObject objNaMao = slot.GetObj(false);
+
+            if (objNaMao.GetComponent<PlantaMachine>() != null) {
+                Player.instance.mao.Subtract(slot.item, 1);
+                Plantar(objNaMao.GetComponent<PlantaMachine>());
             }
         } else if (planta != null) {
             if (planta.state == planta.crescidoState) {
@@ -18,8 +24,9 @@ public class Vaso : AcaoBehaviour {
                 Item item = planta.GetComponent<Item>();
                 Signo signo = item.signo;
                 planta = null;
-                Debug.Log("" + signo);
-                GameManager.instance.AddToInventario(signo, 1);
+                
+                Player.instance.mao.Add(signo, 1);
+                Player.instance.mao.Selecionar(signo);
             }
         }
     }

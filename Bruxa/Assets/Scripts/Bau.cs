@@ -5,12 +5,25 @@ using UnityEngine;
 public class Bau : AcaoBehaviour {
     public static Bau instance;
 
-    public GameObject ui;
+    public GameObject ui, slotsHolder;
+
     public Inventario inventario;
 
 
     void Awake() {
         instance = this;
+    }
+
+    void Start() {
+        int quant = slotsHolder.transform.childCount;
+        inventario = new InventarioEstatico(quant);
+
+        foreach (Transform child in slotsHolder.transform) {
+            SlotUI slotUI = child.GetComponent<SlotUI>();
+            Slot startingSlot = slotUI.GetSlot();
+            inventario.Add(startingSlot.item, startingSlot.qtd);
+            slotUI.SetSlot(inventario.GetSlot(startingSlot.item));
+        }
     }
 
     void FixedUpdate() {
@@ -22,13 +35,13 @@ public class Bau : AcaoBehaviour {
     
     public override void FazerAcao() {
         AbrirBau();
-        
-        if (!Player.instance.IsHandEmpty()) {
-            Slot slot = Player.instance.RemoveFromHand();
-            if (slot != null) {
-                inventario.AddItens(slot);
-            }
+        /*
+        if (Player.instance.mao.GetAtual() != null) {
+            Slot slot = Player.instance.mao.GetAtual();
+            inventario.Add(slot.item, slot.qtd);
+            Player.instance.mao.SetQuantity(slot.item, 0);
         }
+        */
     }
 
     public void AbrirBau() {

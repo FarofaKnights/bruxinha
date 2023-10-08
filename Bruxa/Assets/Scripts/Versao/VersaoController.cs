@@ -6,7 +6,6 @@ public class VersaoController : MonoBehaviour {
     public Action<int> TrocaVersao;
 
     public int versao = 0;
-    int oldVersao = 0;
 
     void Awake() {
         instance = this;

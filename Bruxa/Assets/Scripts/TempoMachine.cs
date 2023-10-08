@@ -30,7 +30,7 @@ public class TempoMachine : MonoBehaviour {
         this.state?.Enter();
 
         debugState = state.GetType().Name;
-        Debug.Log(debugState);
+        // Debug.Log(debugState);
 
         OnChanceState?.Invoke(state);
     }

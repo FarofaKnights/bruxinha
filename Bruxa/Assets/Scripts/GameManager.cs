@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour {
     public Player player;
     public float clickRange = 0.25f;
 
-    public List<Slot> inventario = new List<Slot>();
-
     public bool listenInput = true;
 
     void Awake() {
@@ -49,14 +47,5 @@ public class GameManager : MonoBehaviour {
         }
         return Vector3.zero;
     }
-
-    public void AddToInventario(Signo signo, int qtd) { 
-        foreach (Slot s in inventario) { 
-            if (s.item == signo) {
-                s.AddQtd(qtd);
-            }
-        }
-    }
-    
 
 }

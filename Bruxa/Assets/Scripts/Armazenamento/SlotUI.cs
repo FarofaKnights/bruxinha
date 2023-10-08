@@ -10,32 +10,26 @@ public class SlotUI : MonoBehaviour {
     public bool sumirFundo = false;
 
     void Start() {
-        UpdateText();
-        UpdateImage();
+        UpdateValues();
     }
 
     public void HandleClick() {
         if (slot == null) return;
         if (slot.qtd == 0) return;
 
-        if (Player.instance.IsHandEmpty()) {
-            Player.instance.PutInHand(slot);
-            slot = null;
-            UpdateText();
-            UpdateImage();
-        }
-    }
-
-    public void SetSlot(Signo signo, int qtd) {
-        slot = new Slot(signo, qtd);
-        UpdateText();
-        UpdateImage();
+        Player.instance.mao.Add(slot.item, 1);
+        slot.Subtract(1);
+        Player.instance.mao.Selecionar(slot.item);
+        
+        UpdateValues();
     }
 
     public void SetSlot(Slot slot) {
-        this.slot = (slot != null) ? new Slot(slot) : null;
-        UpdateText();
-        UpdateImage();
+        this.slot = (slot != null) ? slot : null;
+
+        slot.OnChange += UpdateValues;
+
+        UpdateValues();
     }
 
     public Signo GetSigno() {
@@ -44,25 +38,37 @@ public class SlotUI : MonoBehaviour {
         return slot.item;
     }
 
-    public void AddQtd(int qtd) {
-        slot.AddQtd(qtd);
+    public Slot GetSlot() {
+        return slot;
+    }
+
+    public void Add(int qtd) {
+        slot.Add(qtd);
         UpdateText();
     }
 
-    public void SubQtd(int qtd) {
-        slot.SubQtd(qtd);
+    public void Subtract(int qtd) {
+        slot.Subtract(qtd);
 
         if (slot.qtd == 0) {
             slot = null;
         }
 
-        UpdateText();
-        UpdateImage();
+        UpdateValues();
     }
 
     public int GetQtd() {
         if (slot == null) return 0;
         return slot.qtd;
+    }
+
+    void UpdateValues(Signo sig, int quant) {
+        UpdateValues();
+    }
+
+    void UpdateValues() {
+        UpdateText();
+        UpdateImage();
     }
 
     void UpdateText() {
@@ -76,19 +82,25 @@ public class SlotUI : MonoBehaviour {
 
     void UpdateImage() {
         if (slot == null || slot.qtd == 0) {
-            image.sprite = null;
+            image.gameObject.SetActive(false);
 
             if (sumirFundo) {
                 fundo.enabled = false;
             }
-
+            
             return;
         } else {
             if (sumirFundo) {
                 fundo.enabled = true;
             }
         }
-
+        image.gameObject.SetActive(true);
         image.sprite = slot.item.sprite;
+    }
+
+    void OnDestroy() {
+        if (slot != null) {
+            slot.OnChange -= UpdateValues;
+        }
     }
 }

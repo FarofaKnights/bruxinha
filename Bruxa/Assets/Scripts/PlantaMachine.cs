@@ -69,7 +69,7 @@ public class PlantaMachine : MonoBehaviour {
 
     public virtual void HasTimeChangedState(IState stateChanged) {
         if (stateChanged == lastState) return;
-        bool sol = false, lua = false, mudanca = false;
+        bool sol = false, lua = false;
 
         switch (stateChanged) {
             case MadrugadaState:

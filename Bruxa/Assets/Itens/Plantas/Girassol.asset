@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4654f49cf1eae40b79935b3531a6bc, type: 3}
   m_Name: Girassol
   m_EditorClassIdentifier: 
-  prefab: {fileID: 617078104232384440, guid: b3faa14678924fe469bdc75b9a70963b, type: 3}
-  sprite: {fileID: 21300000, guid: 1f6ebd1a9ef1c5e43bcc0f4038a23810, type: 3}
+  prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 550385ef5b1ee074da5a0764278c4d2d, type: 3}

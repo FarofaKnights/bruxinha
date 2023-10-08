@@ -27,7 +27,7 @@ public class Ritual : AcaoBehaviour {
 
     public void InRitual() {
         beingLifted = false;
-        UIController.instance.Abrir();
+        // UIController.instance.Abrir();
     }
 
     public void FinishRitual() {

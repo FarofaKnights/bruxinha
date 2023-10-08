@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4654f49cf1eae40b79935b3531a6bc, type: 3}
   m_Name: Cogumelo
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6538736445148004212, guid: 233d04c61569a8f4699adf8ef16aa6c7, type: 3}
-  sprite: {fileID: 21300000, guid: e79a55f4a25fdec47b75a384f778f1be, type: 3}
+  prefab: {fileID: 0}
+  sprite: {fileID: 21300000, guid: edf23bfd9ab51114d84dc0f1d15c8cd2, type: 3}
