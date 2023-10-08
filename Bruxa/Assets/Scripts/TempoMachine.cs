@@ -1,27 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class TempoMachine : MonoBehaviour {
     public static TempoMachine instance;
 
     IState state;
     public string debugState;
-    public Light luz;
+    public Volume postProcess;
+    public ColorAdjustments colorGrading;
+    public float tempoChange = 5;
 
-    Action<IState> OnChanceState;
+    Color posTarget, fundoTarget;
+
+    System.Action<IState> OnChanceState;
 
     void Awake(){
         instance = this;
     }
 
     void Start(){
+        postProcess.profile.TryGet(out colorGrading);
         ChangeState(new DiaState(this));
     }
 
     void FixedUpdate(){
         state?.Execute(Time.deltaTime);
+
+        colorGrading.colorFilter.value = Color.Lerp(colorGrading.colorFilter.value, posTarget, Time.deltaTime);
+        Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, fundoTarget, Time.deltaTime);
     }
 
     public void ChangeState(IState state){
@@ -35,11 +44,16 @@ public class TempoMachine : MonoBehaviour {
         OnChanceState?.Invoke(state);
     }
 
-    public void AddListener(Action<IState> action){
+    public void AddListener(System.Action<IState> action){
         OnChanceState += action;
     }
 
-    public void RemoveListener(Action<IState> action){
+    public void RemoveListener(System.Action<IState> action){
         OnChanceState -= action;
+    }
+
+    public void ChangeAmbient(Color luz, Color fundo) {
+        posTarget = luz;
+        fundoTarget = fundo;
     }
 }

@@ -93,13 +93,11 @@ public class InventarioEstatico : Inventario {
     }
 
     protected bool CreateSlot(Signo item, int qtd) {
-        Debug.Log("creating");
         if (qtd == 0) return false;
         
         int index = GetEmptyPosition();
         if (index == -1) return false;
 
-        Debug.Log("passou os check");
         Slot slot = new Slot(item, qtd);
         slot.OnChange += HandleOnChange;
         slots[index] = slot;
@@ -117,7 +115,6 @@ public class InventarioEstatico : Inventario {
 
     protected void CheckEmpty(Slot slot) {
         if (slot.qtd <= 0) {
-            Debug.Log("removing");
             slot.OnChange -= HandleOnChange;
             
             int index = GetSlotIndex(slot.item);
@@ -129,7 +126,6 @@ public class InventarioEstatico : Inventario {
 
     protected void HandleOnChange(Signo signo, int quant) {
         Slot slot = GetSlot(signo);
-        Debug.Log(signo);
         if (OnChange != null) OnChange(slot);
         CheckEmpty(slot);
     }

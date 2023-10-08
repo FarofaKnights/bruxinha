@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TardeState : IState {
     TempoMachine tempoMachine;
-    public float time, changeTime;
+    public float time, multiplier = 0.75f;
 
     public TardeState(TempoMachine tempoMachine) {
         this.tempoMachine = tempoMachine;
@@ -12,13 +12,15 @@ public class TardeState : IState {
 
     public void Enter() {
         time = 0;
-        changeTime = 5;
-        tempoMachine.luz.color = Color.yellow;
+
+        Color fundo = new Color32(0,150,255,255);
+        Color pos = new Color32(255,170,172,255);
+        tempoMachine.ChangeAmbient(pos, fundo);
     }
 
     public void Execute(float deltaTime) {
         time += deltaTime;
-        if (time >= changeTime) {
+        if (time >= tempoMachine.tempoChange * multiplier) {
             tempoMachine.ChangeState(new NoiteState(tempoMachine));
         }
     }
