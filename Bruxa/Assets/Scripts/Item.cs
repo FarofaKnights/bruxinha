@@ -6,7 +6,7 @@ public class Item : AcaoBehaviour {
     public Signo signo;
     public bool pegavel = true;
 
-    public override void FazerAcao() {
+    public override void FazerAcao(bool leftClick) {
         if (!pegavel) return;
         
         if (signo != null) {

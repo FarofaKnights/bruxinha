@@ -15,8 +15,9 @@ public class Player : MonoBehaviour {
 
     public InventarioScrollavel mao = new InventarioScrollavel();
 
-    Action AfterArrive;
+    Action<bool> AfterArrive;
     bool walking = false;
+    bool wasLeftClick = true;
 
     void Awake() {
         instance = this;
@@ -38,12 +39,14 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate() {
         if (CheckArrivedAtTarget()) {
-            AfterArrive?.Invoke();
+            if (AfterArrive != null) AfterArrive(wasLeftClick);
             AfterArrive = null;
         }
     }
 
-    public void SetTarget(Vector3 target, AcaoBehaviour acao = null) {
+    public void SetTarget(Vector3 target, AcaoBehaviour acao = null, bool leftClick = true) {
+        wasLeftClick = leftClick;
+
         if (acao != null) {
             Transform novoTarget = acao.GetTarget(transform);
             target = novoTarget!=null? novoTarget.position : target;

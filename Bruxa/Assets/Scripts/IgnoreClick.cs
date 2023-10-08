@@ -6,7 +6,7 @@ public class IgnoreClick : AcaoBehaviour {
     public Signo signo;
     public bool pegavel = true;
 
-    public override void FazerAcao() { }
+    public override void FazerAcao(bool leftClick) { }
     public override Transform GetTarget() {
         Player.instance.IgnoreCurrentClick();
         return null;

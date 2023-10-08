@@ -15,7 +15,7 @@ public class Ritual : AcaoBehaviour {
         instance = this;
     }
     
-    public override void FazerAcao() {
+    public override void FazerAcao(bool leftClick) {
         GameManager.instance.listenInput = false;
 
         GameObject player = Player.instance.gameObject;

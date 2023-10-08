@@ -71,14 +71,12 @@ public class InventarioLista : Inventario {
     
     protected void CreateSlot(Signo item, int qtd) {
         Slot slot = new Slot(item, qtd);
-        Debug.Log("creating");
         slot.OnChange += HandleOnChange;
         slots.Add(slot);
     }
 
     protected void CheckEmpty(Slot slot) {
         if (slot.qtd <= 0) {
-            Debug.Log("removing");
             slot.OnChange -= HandleOnChange;
             
             slots.Remove(slot);
@@ -86,9 +84,17 @@ public class InventarioLista : Inventario {
         }
     }
 
+    public void Clear() {
+        foreach (Slot slot in slots) {
+            slot.OnChange -= HandleOnChange;
+            OnRemove(slot);
+        }
+
+        slots.Clear();
+    }
+
     protected void HandleOnChange(Signo signo, int quant) {
         Slot slot = GetSlot(signo);
-        Debug.Log(signo);
         if (OnChange != null) OnChange(slot);
         CheckEmpty(slot);
     }

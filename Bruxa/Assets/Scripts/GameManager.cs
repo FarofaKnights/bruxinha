@@ -18,12 +18,13 @@ public class GameManager : MonoBehaviour {
     void Update() {
         if (!listenInput) return;
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) {
+            bool leftClick = Input.GetMouseButtonDown(0);
             Vector3 mousePosition = GetMousePosition();
 
             if (mousePosition != Vector3.zero) {
                 AcaoBehaviour acao = CheckForClickables(mousePosition);
-                player.SetTarget(mousePosition, acao);
+                player.SetTarget(mousePosition, acao, leftClick);
             }
         }
     }

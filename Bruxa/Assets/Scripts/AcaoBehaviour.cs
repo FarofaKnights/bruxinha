@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class AcaoBehaviour : MonoBehaviour {
     public Transform[] targets;
-    public abstract void FazerAcao();
+    public abstract void FazerAcao(bool leftClick);
 
     public virtual Transform GetTarget() {
         if (targets == null || targets.Length == 0) return null;

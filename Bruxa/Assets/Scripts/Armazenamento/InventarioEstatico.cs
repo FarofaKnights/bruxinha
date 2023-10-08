@@ -93,11 +93,13 @@ public class InventarioEstatico : Inventario {
     }
 
     protected bool CreateSlot(Signo item, int qtd) {
+        Debug.Log("creating");
         if (qtd == 0) return false;
         
         int index = GetEmptyPosition();
         if (index == -1) return false;
 
+        Debug.Log("passou os check");
         Slot slot = new Slot(item, qtd);
         slot.OnChange += HandleOnChange;
         slots[index] = slot;

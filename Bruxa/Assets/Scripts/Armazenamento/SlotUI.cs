@@ -8,6 +8,7 @@ public class SlotUI : MonoBehaviour {
     public Image image, fundo;
     public Text txt;
     public bool sumirFundo = false;
+    public bool desprender = true;
 
     void Start() {
         UpdateValues();
@@ -50,7 +51,7 @@ public class SlotUI : MonoBehaviour {
     public void Subtract(int qtd) {
         slot.Subtract(qtd);
 
-        if (slot.qtd == 0) {
+        if (slot.qtd == 0 && desprender) {
             slot = null;
         }
 

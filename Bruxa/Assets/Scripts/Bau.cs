@@ -33,15 +33,14 @@ public class Bau : AcaoBehaviour {
         }
     }
     
-    public override void FazerAcao() {
+    public override void FazerAcao(bool leftClick) {
         AbrirBau();
-        /*
-        if (Player.instance.mao.GetAtual() != null) {
+        
+        if (leftClick && Player.instance.mao.GetAtual() != null) {
             Slot slot = Player.instance.mao.GetAtual();
-            inventario.Add(slot.item, slot.qtd);
-            Player.instance.mao.SetQuantity(slot.item, 0);
+            inventario.Add(slot.item, 1);
+            Player.instance.mao.Subtract(slot.item, 1);
         }
-        */
     }
 
     public void AbrirBau() {
