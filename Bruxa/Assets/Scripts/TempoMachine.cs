@@ -7,15 +7,17 @@ using UnityEngine.Rendering.Universal;
 public class TempoMachine : MonoBehaviour {
     public static TempoMachine instance;
 
-    IState state;
+    TempoState state;
     public string debugState;
     public Volume postProcess;
     public ColorAdjustments colorGrading;
     public float tempoChange = 5;
+    public GameObject chuvaParticle, snowParticle;
+    public int chanceChuva = 1, chanceNeve = 1;
 
     Color posTarget, fundoTarget;
 
-    System.Action<IState> OnChanceState;
+    System.Action<TempoState> OnChanceState;
 
     void Awake(){
         instance = this;
@@ -33,7 +35,7 @@ public class TempoMachine : MonoBehaviour {
         Camera.main.backgroundColor = Color.Lerp(Camera.main.backgroundColor, fundoTarget, Time.deltaTime);
     }
 
-    public void ChangeState(IState state){
+    public void ChangeState(TempoState state){
         this.state?.Exit();
         this.state = state;
         this.state?.Enter();
@@ -44,16 +46,24 @@ public class TempoMachine : MonoBehaviour {
         OnChanceState?.Invoke(state);
     }
 
-    public void AddListener(System.Action<IState> action){
+    public void AddListener(System.Action<TempoState> action){
         OnChanceState += action;
     }
 
-    public void RemoveListener(System.Action<IState> action){
+    public void RemoveListener(System.Action<TempoState> action){
         OnChanceState -= action;
     }
 
     public void ChangeAmbient(Color luz, Color fundo) {
         posTarget = luz;
         fundoTarget = fundo;
+    }
+
+    public void RainParticle(bool active) {
+        chuvaParticle.SetActive(active);
+    }
+
+    public void SnowParticle(bool active) {
+        snowParticle.SetActive(active);
     }
 }

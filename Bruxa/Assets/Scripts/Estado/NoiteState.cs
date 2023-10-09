@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NoiteState : IState {
-    TempoMachine tempoMachine;
-    public float time, multiplier = 1;
+public class NoiteState : TempoState {
 
     public NoiteState(TempoMachine tempoMachine) {
         this.tempoMachine = tempoMachine;
+        multiplier = 1f;
+
+        lua = true;
     }
 
-    public void Enter() {
+    public override void Enter() {
         time = 0;
 
         Color noiteFundo = new Color32(1,0,55,255);
@@ -18,14 +19,17 @@ public class NoiteState : IState {
         tempoMachine.ChangeAmbient(pos, noiteFundo);
     }
 
-    public void Execute(float deltaTime) {
+    public override void Execute(float deltaTime) {
         time += deltaTime;
         if (time >= tempoMachine.tempoChange * multiplier) {
-            tempoMachine.ChangeState(new MadrugadaState(tempoMachine));
+            int chance = Random.Range(0, 10);
+
+            if (chance < tempoMachine.chanceNeve) tempoMachine.ChangeState(new NeveState(tempoMachine));
+            else tempoMachine.ChangeState(new MadrugadaState(tempoMachine));
         }
     }
 
-    public void Exit() {
+    public override void Exit() {
         time = 0;
     }
 }

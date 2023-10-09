@@ -56,7 +56,15 @@ MonoBehaviour:
   - {fileID: 6609416478138873792}
   - {fileID: 5937478808673900472}
   - {fileID: 3840984419139648885}
+  chuva: 2
+  neve: 1
+  sol: 2
+  lua: 1
+  mudanca: 0
   inHand: 1
+  modificador: 1
+  tempoEntreFases: 12
+  tempoMorte: 24
 --- !u!114 &-4683259755446717950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab31f3eef9cdc948a8672fc23bf5a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: []
   signo: {fileID: 11400000, guid: 9703b92772bfb9b4ca5edb2a250d601d, type: 2}
   pegavel: 1
 --- !u!65 &5079653274268747954

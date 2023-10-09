@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiaState : IState {
-    TempoMachine tempoMachine;
-    public float time, multiplier = 1;
+public class DiaState : TempoState {
 
     public DiaState(TempoMachine tempoMachine) {
         this.tempoMachine = tempoMachine;
+        multiplier = 1f;
+
+        sol = true;
     }
 
-    public void Enter() {
+    public override void Enter() {
         time = 0;
 
         Color fundo = new Color32(0,181,255,255);
         tempoMachine.ChangeAmbient(Color.white, fundo);
     }
 
-    public void Execute(float deltaTime) {
+    public override void Execute(float deltaTime) {
         time += deltaTime;
         if (time >= tempoMachine.tempoChange * multiplier) {
-            tempoMachine.ChangeState(new TardeState(tempoMachine));
+            int chance = Random.Range(0, 10);
+
+            if (chance < tempoMachine.chanceChuva) tempoMachine.ChangeState(new ChuvaState(tempoMachine));
+            else tempoMachine.ChangeState(new TardeState(tempoMachine));
         }
     }
 
-    public void Exit() {
+    public override void Exit() {
         time = 0;
     }
 }

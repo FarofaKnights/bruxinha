@@ -2,30 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MadrugadaState : IState {
-    TempoMachine tempoMachine;
-    public float time, multiplier = 0.75f;
+public class MadrugadaState : TempoState {
 
     public MadrugadaState(TempoMachine tempoMachine) {
         this.tempoMachine = tempoMachine;
+        multiplier = 0.75f;
+
+        lua = true;
     }
 
-    public void Enter() {
+    public override void Enter() {
         time = 0;
 
         Color fundo = new Color32(0,14,35,255);
-        Color pos = new Color32(99,93,213,255);
+        Color pos = new Color32(76,72,180,255);
         tempoMachine.ChangeAmbient(pos, fundo);
     }
 
-    public void Execute(float deltaTime) {
+    public override void Execute(float deltaTime) {
         time += deltaTime;
         if (time >= tempoMachine.tempoChange * multiplier) {
             tempoMachine.ChangeState(new DiaState(tempoMachine));
         }
     }
 
-    public void Exit() {
+    public override void Exit() {
         time = 0;
     }
 }

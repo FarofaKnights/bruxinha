@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CresceCom { Sol, Lua, Mudanca }
+public enum Relacao { Neutro, Para, Cresce, Murcha }
 
 public class PlantaMachine : MonoBehaviour {
     public GameObject[] estados;
@@ -11,9 +11,9 @@ public class PlantaMachine : MonoBehaviour {
 
     public IState state;
 
-    public CresceCom cresceCom;
+    public Relacao chuva = Relacao.Cresce, neve = Relacao.Para, sol = Relacao.Para, lua = Relacao.Para, mudanca = Relacao.Neutro;
 
-    public IState lastState;
+    public TempoState lastState;
     public bool inHand = true;
     public float modificador = 1;
 
@@ -63,44 +63,46 @@ public class PlantaMachine : MonoBehaviour {
         this.state?.Exit();
         this.state = state;
         this.state?.Enter();
-
-        Debug.Log("Mudou de estado para " + state.GetType().Name);
     }
 
-    public virtual void HasTimeChangedState(IState stateChanged) {
+    float CalcularRelacao(float modificador, Relacao relacao) {
+        if (relacao == Relacao.Neutro) return modificador;
+        if (relacao == Relacao.Para) return 0;
+        if (relacao == Relacao.Cresce) return modificador + 0.5f;
+        if (relacao == Relacao.Murcha) return -0.5f;
+        return modificador;
+    }
+
+    public virtual void HasTimeChangedState(TempoState stateChanged) {
         if (stateChanged == lastState) return;
-        bool sol = false, lua = false;
 
-        switch (stateChanged) {
-            case MadrugadaState:
-                lua = true;
-                break;
-            case DiaState:
-                sol = true;
-                break;
-            case TardeState:
-                sol = true;
-                break;
-            case NoiteState:
-                lua = true;
-                break;
+        modificador = 0;
+
+        if (stateChanged.sol) {
+            modificador = CalcularRelacao(modificador, sol);
+        } else if (stateChanged.lua) {
+            modificador = CalcularRelacao(modificador, lua);
         }
 
-        if (cresceCom == CresceCom.Sol) {
-            modificador = sol ? 1 : 0;
-        }
+        if (modificador != 0) modificador = Mathf.Sign(modificador);
 
-        if (cresceCom == CresceCom.Lua) {
-            modificador = lua ? 1 : 0;
-        }
-
-        if (cresceCom == CresceCom.Mudanca) {
-            if (lastState is MadrugadaState && stateChanged is DiaState) {
-                modificador = 1;
+        if (mudanca != Relacao.Neutro && mudanca != Relacao.Para) {
+            if (lastState != null && lastState.lua && stateChanged.sol) {
+                modificador = Mathf.Sign(CalcularRelacao(modificador, mudanca));
                 state?.Execute(999);
                 modificador = 0;
             }
         }
+
+        if (stateChanged.chuva) {
+            modificador = CalcularRelacao(modificador, chuva);
+        }
+
+        if (stateChanged.neve) {
+            modificador = CalcularRelacao(modificador, neve);
+        }
+
+       // Debug.Log(stateChanged.sol + " - " + stateChanged.lua + " - " + stateChanged.chuva + " - " + stateChanged.neve + " - " + mudanca + " - " + modificador);
 
         lastState = stateChanged;
     }

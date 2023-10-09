@@ -9,6 +9,7 @@ public class Caldeirao : AcaoBehaviour {
     public InventarioLista ingredientes;
 
     Signo resultado = null;
+    int quantidadeResultado = 0;
 
     public List<Receita> receitas;
     public Signo erroGenerico;
@@ -49,6 +50,8 @@ public class Caldeirao : AcaoBehaviour {
         if (receita == null) resultado = erroGenerico;
         else resultado = receita.resultado;
 
+        quantidadeResultado = receita.quantidade;
+
         ingredientes.Clear();
 
         visualizacao.sprite = resultado.sprite;
@@ -58,8 +61,10 @@ public class Caldeirao : AcaoBehaviour {
     public void PegarResultado() {
         visualizacaoAnimator.SetTrigger("PickupItem");
 
-        Player.instance.mao.Add(resultado, 1);
+        Player.instance.mao.Add(resultado, quantidadeResultado);
         Player.instance.mao.Selecionar(resultado);
+        
         resultado = null;
+        quantidadeResultado = 0;
     }
 }

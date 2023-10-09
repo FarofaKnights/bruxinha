@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TardeState : TempoState {
+public class ChuvaState : TempoState {
 
-    public TardeState(TempoMachine tempoMachine) {
+    public ChuvaState(TempoMachine tempoMachine) {
         this.tempoMachine = tempoMachine;
-        multiplier = 0.75f;
+        multiplier = 1f;
 
+        chuva = true;
         sol = true;
     }
 
     public override void Enter() {
         time = 0;
 
-        Color fundo = new Color32(0,150,255,255);
-        Color pos = new Color32(255,170,172,255);
+        Color fundo = new Color32(94,126,140,255);
+        Color pos = new Color32(198,214,255,255);
         tempoMachine.ChangeAmbient(pos, fundo);
+        tempoMachine.RainParticle(true);
     }
 
     public override void Execute(float deltaTime) {
@@ -27,6 +29,7 @@ public class TardeState : TempoState {
     }
 
     public override void Exit() {
+        tempoMachine.RainParticle(false);
         time = 0;
     }
 }

@@ -21,8 +21,6 @@ public class Slot {
 
     public void Add(int qtd) {
         this.qtd += qtd;
-        Debug.Log(qtd);
-        Debug.Log(OnChange);
         if (OnChange != null) OnChange(item, qtd);
     }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Receita : ScriptableObject {
     public List<Slot> slots;
     public Signo resultado;
+    public int quantidade = 1;
 
     public bool ChecarReceita(List<Slot> testSlots) {
         if (testSlots.Count != slots.Count) return false;

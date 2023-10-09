@@ -84,8 +84,6 @@ public class Player : MonoBehaviour {
     }
 
     public void UpdateHand(Slot atual) {
-        Debug.Log(atual);
-
         UIController.instance.UpdateCurrentSelected(atual);
 
         if (atual == null || atual.qtd == 0) {

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77dbdffa20acd9a43acee52157167cb2, type: 3}
-  m_Name: Teste
+  m_Name: GirassolDup
   m_EditorClassIdentifier: 
   slots:
-  - item: {fileID: 11400000, guid: 43ca52c49c8fb1f42b2e8c3f8900e2ed, type: 2}
-    qtd: 3
-  resultado: {fileID: 11400000, guid: 3d1ada1c679d7e94d83eb71c278f0c30, type: 2}
+  - item: {fileID: 11400000, guid: 3d1ada1c679d7e94d83eb71c278f0c30, type: 2}
+    qtd: 1
+  resultado: {fileID: 11400000, guid: 2035f656b88c4d641acf5dc725fe3e55, type: 2}
+  quantidade: 2
